@@ -18,30 +18,32 @@ class Background extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: SizedBox(
-        width: double.infinity,
-        height: MediaQuery.of(context).size.height,
-        child: Stack(
-          alignment: Alignment.center,
-          children: <Widget>[
-            Align(
-              alignment: Alignment.topLeft,
-              child: Image.asset(
-                topImage,
-                width: 120,
+      body: SingleChildScrollView(
+        child: SizedBox(
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height,
+          child: Stack(
+            alignment: Alignment.center,
+            children: <Widget>[
+              Align(
+                alignment: Alignment.topLeft,
+                child: Image.asset(
+                  topImage,
+                  width: 120,
+                ),
               ),
-            ),
-            SafeArea(
-                child:
-                    Padding(padding: const EdgeInsets.all(16), child: child)),
-            // Align(
-            //   alignment: Alignment.bottomRight,
-            //   child: Image.asset(
-            //     bottomImage,
-            //     width: 120,
-            //   ),
-            // ),
-          ],
+              SafeArea(
+                  child:
+                      Padding(padding: const EdgeInsets.all(16), child: child)),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Image.asset(
+                  bottomImage,
+                  width: 120,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -81,8 +83,8 @@ class MobileLoginScreen extends StatelessWidget {
                 children: [
                   TextField(
                     decoration: InputDecoration(
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.all(defaultPadding),
+                        prefixIcon: const Padding(
+                          padding: EdgeInsets.all(defaultPadding),
                           child: Icon(Icons.person),
                         ),
                         hintText: "Your email",
